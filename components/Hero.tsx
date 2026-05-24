@@ -51,7 +51,12 @@ function Typewriter() {
   );
 }
 
-const transcript = [
+type TranscriptLine =
+  | { type: "in"; text: string }
+  | { type: "out"; text: string }
+  | { type: "out-multi"; lines: string[] };
+
+const transcript: TranscriptLine[] = [
   { type: "in", text: "whoami" },
   { type: "out", text: "nitin kumar · full stack developer" },
   { type: "in", text: "cat /etc/skills | head -3" },
